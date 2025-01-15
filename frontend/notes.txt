@@ -1,0 +1,9 @@
+Admin Dashboard Features:
+-Adding/removing a teacher
+-allocating lessons (class & time)
+-alert for colliding lessons
+
+TeacheR's Dashboard
+-view timetable()
+-download timetable/ print
+
