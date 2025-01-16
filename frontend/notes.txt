@@ -7,3 +7,49 @@ Teacher's Dashboard
 -view timetable()
 -download timetable/ print
 
+frontend/
+├── public/                       # Static assets that are publicly accessible
+│   ├── favicon.ico               # Favicon for the project
+│   ├── logo.png                  # Logo used across the app
+
+├── src/                          # Main source code directory
+│   ├── assets/                   # Static assets like images and icons used within the app
+│   │   ├── teacher-icons/        # Icons for different teachers
+│   │   ├── timetable-bg.png      # Background image for the timetable display
+│   │
+│   ├── components/               # Reusable components used in multiple pages
+│   │   ├── Navbar.jsx            # Navigation bar, used across the app
+│   │   ├── Footer.jsx            # Footer for the app, present in most pages
+│   │   ├── Hero.jsx              # Hero section for the landing page
+│   │   ├── LessonForm.jsx        # Form component for assigning lessons to time slots
+│   │   ├── Timetable.jsx         # Timetable grid for displaying lessons for each teacher
+│   │
+│   ├── pages/                    # Full-page components (i.e., page layouts for each screen)
+│   │   ├── AdminDashboard.jsx    # Admin page for managing teachers and timetables
+│   │   ├── LandingPage.jsx       # Landing page of the app
+│   │   ├── Login.jsx             # Login page for users (teachers, admins)
+│   │   ├── Signup.jsx            # Signup page for new users
+│   │   ├── TeacherDashboard.jsx  # Teacher's dashboard for viewing their assigned timetable and includes a print button
+│   │
+│   ├── services/                 # Placeholder for API calls and data management
+│   │   ├── timetableService.js   # Handles API calls related to timetable data
+│   │   ├── teacherService.js     # Handles API calls related to teacher data
+│   │
+│   ├── utils/                    # Utility functions to be used across components
+│   │   ├── pdfHelper.js          # Functions for generating and downloading timetables as PDFs
+│   │   ├── validation.js         # Functions for form validation and timetable entry checks
+│   │
+│   ├── App.css                   # Global styles for the app (can include tailwind imports)
+│   ├── App.jsx                   # Root component rendering the entire app
+│   ├── index.css                 # Tailwind CSS base configuration
+│   ├── main.jsx                  # Application entry point, renders the root component
+
+├── README.md                     # Documentation and project setup instructions
+├── eslint.config.js              # Linter configuration to ensure code quality
+├── index.html                    # Main HTML template file for the app
+├── notes.txt                     # Developer's notes or tasks for reference
+├── package-lock.json             # Lock file for npm dependencies to ensure consistency
+├── package.json                  # Metadata and dependencies for the project
+├── postcss.config.cjs            # PostCSS configuration, necessary for Tailwind
+├── tailwind.config.js            # Configuration for Tailwind CSS (customizations, theme settings)
+├── vite.config.js                # Vite configuration for fast builds and optimization
