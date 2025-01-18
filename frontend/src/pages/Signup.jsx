@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import bgImage from '../assets/images/bg.png'; // Ensure this path matches your folder structure
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -23,7 +24,7 @@ const Signup = () => {
     }
     try {
       console.log('Signing up with:', { name, email, password, role });
-      navigate('/login');
+      navigate('/profile');
     } catch (err) {
       setError('Error creating account');
     }
@@ -32,7 +33,7 @@ const Signup = () => {
   return (
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: `url('/src/assets/images/bg.png')` }}
+      style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="w-full max-w-md p-8 bg-white bg-opacity-80 rounded-lg shadow-md">
         <h2 className="text-2xl font-semibold text-center" style={{ color: '#481E2D' }}>
@@ -114,11 +115,7 @@ const Signup = () => {
           </div>
           {role === 'Admin' && (
             <div className="mb-6">
-              <label
-                htmlFor="secretCode"
-                className="block text-sm font-medium"
-                style={{ color: '#481E2D' }}
-              >
+              <label htmlFor="secretCode" className="block text-sm font-medium" style={{ color: '#481E2D' }}>
                 Secret Code
               </label>
               <input
@@ -126,7 +123,7 @@ const Signup = () => {
                 id="secretCode"
                 value={secretCode}
                 onChange={(e) => setSecretCode(e.target.value)}
-                required
+                required={role === 'Admin'}
                 className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2"
                 style={{ borderColor: '#481E2D' }}
               />
@@ -138,7 +135,6 @@ const Signup = () => {
             style={{
               backgroundColor: '#481E2D',
               color: 'white',
-              hover: { backgroundColor: '#3a1622' },
             }}
           >
             Sign Up

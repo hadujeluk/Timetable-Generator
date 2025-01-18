@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -9,11 +9,26 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      console.log('Logging in with:', { email, password });
-      navigate('/admin-dashboard'); // Redirect to admin dashboard
-    } catch (err) {
-      setError('Invalid email or password');
+
+    // For testing purposes, bypassing email/password validation
+    const isValidLogin = email && password; // Allow any email/password combination for testing
+
+    if (isValidLogin) {
+      localStorage.setItem('authToken', 'some-auth-token'); // Simulate login by storing an auth token
+      setIsAuthenticated(true); // Update the authentication state
+
+      // Check if the profile is completed
+      const profileCompleted = localStorage.getItem('profileCompleted') === 'true';
+
+      if (!profileCompleted) {
+        // If profile is not completed, redirect to profile completion page
+        navigate('/profile');
+      } else {
+        // If profile is completed, redirect to the dashboard
+        navigate('/teacher-dashboard');
+      }
+    } else {
+      setError('Invalid email or password'); // Optional, can be removed for testing purposes
     }
   };
 
