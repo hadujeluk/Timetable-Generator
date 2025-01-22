@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import bgImage from '../assets/images/bg.png'; // Ensure this path matches your folder structure
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -33,81 +32,64 @@ const Signup = () => {
   return (
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: `url(${bgImage})` }}
+      style={{ backgroundImage: `url('https://media.istockphoto.com/id/157194293/photo/nightride.jpg?s=612x612&w=0&k=20&c=a6ibBdkE6IFOKj-yjCXp0NCdGzDyt4ZBCHbTmHtrqoE=')` }}
     >
-      <div className="w-full max-w-md p-8 bg-white bg-opacity-80 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold text-center" style={{ color: '#481E2D' }}>
-          Sign Up
-        </h2>
-        {error && <p className="text-red-500 text-center">{error}</p>}
+      <div className="w-full max-w-md p-8 bg-gradient-to-r from-blue-400 via-green-500 to-yellow-500 rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105">
+        <h2 className="text-4xl font-extrabold text-center text-white">Sign Up</h2>
+        {error && <p className="text-red-300 text-center">{error}</p>}
         <form onSubmit={handleSubmit} className="mt-6">
           <div className="mb-4">
-            <label htmlFor="name" className="block text-sm font-medium" style={{ color: '#481E2D' }}>
-              Name
-            </label>
+            <label htmlFor="name" className="block text-sm font-medium text-white">Name</label>
             <input
               type="text"
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2"
-              style={{ borderColor: '#481E2D' }}
+              className="w-full px-4 py-2 mt-2 border border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white"
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium" style={{ color: '#481E2D' }}>
-              Email
-            </label>
+            <label htmlFor="email" className="block text-sm font-medium text-white">Email</label>
             <input
               type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2"
-              style={{ borderColor: '#481E2D' }}
+              className="w-full px-4 py-2 mt-2 border border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white"
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="password" className="block text-sm font-medium" style={{ color: '#481E2D' }}>
-              Password
-            </label>
+            <label htmlFor="password" className="block text-sm font-medium text-white">Password</label>
             <input
               type="password"
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2"
-              style={{ borderColor: '#481E2D' }}
+              className="w-full px-4 py-2 mt-2 border border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white"
             />
           </div>
           <div className="mb-6">
-            <label htmlFor="confirmPassword" className="block text-sm font-medium" style={{ color: '#481E2D' }}>
-              Confirm Password
-            </label>
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-white">Confirm Password</label>
             <input
               type="password"
               id="confirmPassword"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
-              className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2"
-              style={{ borderColor: '#481E2D' }}
+              className="w-full px-4 py-2 mt-2 border border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white"
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="role" className="block text-sm font-medium" style={{ color: '#481E2D' }}>
-              Role
-            </label>
+            <label htmlFor="role" className="block text-sm font-medium text-white">Role</label>
             <select
               id="role"
               value={role}
               onChange={(e) => setRole(e.target.value)}
               required
-              className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2"
-              style={{ borderColor: '#481E2D' }}
+              className="w-full px-4 py-2 mt-2 border border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white"
             >
               <option value="Teacher">Teacher</option>
               <option value="Admin">Admin</option>
@@ -115,34 +97,27 @@ const Signup = () => {
           </div>
           {role === 'Admin' && (
             <div className="mb-6">
-              <label htmlFor="secretCode" className="block text-sm font-medium" style={{ color: '#481E2D' }}>
-                Secret Code
-              </label>
+              <label htmlFor="secretCode" className="block text-sm font-medium text-white">Secret Code</label>
               <input
                 type="password"
                 id="secretCode"
                 value={secretCode}
                 onChange={(e) => setSecretCode(e.target.value)}
                 required={role === 'Admin'}
-                className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2"
-                style={{ borderColor: '#481E2D' }}
+                className="w-full px-4 py-2 mt-2 border border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white"
               />
             </div>
           )}
           <button
             type="submit"
-            className="w-full py-2 font-semibold rounded-md focus:outline-none"
-            style={{
-              backgroundColor: '#481E2D',
-              color: 'white',
-            }}
+            className="w-full py-2 bg-white text-[#481E2D] font-semibold rounded-md hover:bg-gray-200 transition duration-300"
           >
             Sign Up
           </button>
         </form>
-        <p className="mt-4 text-center text-sm" style={{ color: '#481E2D' }}>
+        <p className="mt-4 text-center text-sm text-white">
           Already have an account?{' '}
-          <a href="/login" style={{ color: '#481E2D', textDecoration: 'underline' }}>
+          <a href="/login" className="text-yellow-300 hover:text-yellow-400">
             Login
           </a>
         </p>

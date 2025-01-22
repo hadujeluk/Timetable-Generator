@@ -88,6 +88,7 @@ import TeacherDashboard from './pages/TeacherDashboard'; // Teacher Dashboard
 import TeacherProfile from './components/TeacherProfile'; // Teacher Profile Component
 import Timetable from './components/Timetable';
 import ProfileForm from './components/ProfileForm';
+import AdminDashboard from './pages/AdminDashboard';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -117,16 +118,14 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+
+
 
         <Route
           path="/teacher-dashboard"
-          element={isAuthenticated && isProfileCompleted ? (
-            <TeacherDashboard handleLogout={handleLogout} />
-          ) : (
-            <Navigate to="/login" />
-          )}
-        />
-
+          element={<TeacherDashboard />} />
+           
         <Route
           path="/teacher-profile"
           element={<TeacherProfile />}
